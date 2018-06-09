@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StoryView">
+        <attr name="storyImageRadius" format="dimension"/>
+        <attr name="storyItemIndicatorWidth" format="dimension"/>
+        <attr name="spaceBetweenImageAndIndicator" format="dimension"/>
+        <attr name="pendingIndicatorColor" format="color"/>
+        <attr name="visitedIndicatorColor" format="color"/>
+    </declare-styleable>
+</resources>
