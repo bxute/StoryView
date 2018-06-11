@@ -36,7 +36,7 @@ allprojects {
  2. Add the dependency
  ```java
 dependencies {
-    mplementation 'com.github.bxute:StoryView:v1.0'
+    implementation 'com.github.bxute:StoryView:v1.0'
 }
 
 ``` 
@@ -55,7 +55,7 @@ dependencies {
  
  4. Set story info
  ```java
-StoryView storyView = findViewById(R.id.storyView);
+        StoryView storyView = findViewById(R.id.storyView);
         storyView.resetStoryVisits();
         ArrayList<StoryModel> uris = new ArrayList<>();
         uris.add(new StoryModel("https://www.planwallpaper.com/static/images/animals-4.jpg","Steve","Yesterday"));
