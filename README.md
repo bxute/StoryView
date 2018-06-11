@@ -21,8 +21,7 @@ How it looks like:
 
  - It pauses when we keep our finger on screen and resumes when fingers are released.
  
-![pause_show](https://user-images.githubusercontent.com/10809719/41231418-a63aae32-6da0-11e8-852d-365d44ce9dc5.gif)![pause_resume](https://user-images.githubusercontent.com/10809719/41230501-b0983d84-6d9d-11e8-8da1-989abbcfdf77.gif)
-
+![pause_show](https://user-images.githubusercontent.com/10809719/41231418-a63aae32-6da0-11e8-852d-365d44ce9dc5.gif)
 ### How to use this library
 
  1. Add it in your root build.gradle at the end of repositories:
