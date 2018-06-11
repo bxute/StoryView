@@ -7,4 +7,11 @@
         <attr name="pendingIndicatorColor" format="color"/>
         <attr name="visitedIndicatorColor" format="color"/>
     </declare-styleable>
+    <declare-styleable name="StoryPlayerProgressView">
+        <attr name="progressBarHeight" format="dimension"/>
+        <attr name="gapBetweenProgressBar" format="dimension"/>
+        <attr name="progressBarPrimaryColor" format="color"/>
+        <attr name="progressBarSecondaryColor" format="color"/>
+        <attr name="singleStoryDisplayTime" format="integer"/>
+    </declare-styleable>
 </resources>

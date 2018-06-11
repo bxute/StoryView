@@ -1,6 +1,7 @@
 package xute.storyview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -11,11 +12,14 @@ import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+
 import java.util.ArrayList;
 
 public class StoryView extends View {
@@ -38,11 +42,12 @@ public class StoryView extends View {
     private Resources resources;
     private ArrayList<StoryModel> storyImageUris;
     private Paint mIndicatorPaint;
-    private Paint mImagePaint;
     private int indicatorCount;
     private int indicatorSweepAngle;
     private Bitmap mIndicatorImageBitmap;
     private Rect mIndicatorImageRect;
+    private Context mContext;
+    StoryPreference storyPreference;
 
     public StoryView(Context context) {
         super(context);
@@ -67,9 +72,12 @@ public class StoryView extends View {
     }
 
     private void init(Context context) {
+        this.mContext = context;
+        storyPreference = new StoryPreference(context);
         resources = context.getResources();
         storyImageUris = new ArrayList<>();
         mIndicatorPaint = new Paint();
+        mIndicatorPaint.setAntiAlias(true);
         mIndicatorPaint.setStyle(Paint.Style.STROKE);
         mIndicatorPaint.setStrokeCap(Paint.Cap.ROUND);
     }
@@ -91,12 +99,31 @@ public class StoryView extends View {
         mIndicatorImageRect = new Rect(mIndicatorImageOffset, mIndicatorImageOffset, mViewWidth - mIndicatorImageOffset, mViewHeight - mIndicatorImageOffset);
     }
 
+    public void resetStoryVisits(){
+        storyPreference.clearStoryPreferences();
+    }
+
     public void setImageUris(ArrayList<StoryModel> imageUris) {
         this.storyImageUris = imageUris;
         this.indicatorCount = imageUris.size();
         calculateSweepAngle(indicatorCount);
         invalidate();
         loadFirstImageBitamp();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+            navigateToStoryPlayerPage();
+            return true;
+        }
+        return true;
+    }
+
+    private void navigateToStoryPlayerPage() {
+        Intent intent = new Intent(mContext, StoryPlayer.class);
+        intent.putParcelableArrayListExtra(StoryPlayer.STORY_IMAGE_KEY,storyImageUris);
+        mContext.startActivity(intent);
     }
 
     @Override
@@ -116,7 +143,7 @@ public class StoryView extends View {
     }
 
     private int getIndicatorColor(int index) {
-        return storyImageUris.get(index).isVisited ? mVisistedIndicatorColor : mPendingIndicatorColor;
+        return storyPreference.isStoryVisited(storyImageUris.get(index).imageUri) ? mVisistedIndicatorColor : mPendingIndicatorColor;
     }
 
     @Override
