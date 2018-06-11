@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import java.util.ArrayList;
@@ -14,7 +16,9 @@ public class StoryPlayer extends AppCompatActivity implements StoryPlayerProgres
     public static final String STORY_IMAGE_KEY = "storyImages";
     StoryPlayerProgressView storyPlayerProgressView;
     ImageView imageView;
-    ArrayList<StoryModel> imagesUris;
+    TextView name;
+    TextView time;
+    ArrayList<StoryModel> stories;
     StoryPreference storyPreference;
 
     @Override
@@ -22,12 +26,14 @@ public class StoryPlayer extends AppCompatActivity implements StoryPlayerProgres
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_story_player);
         storyPlayerProgressView = findViewById(R.id.progressBarView);
+        name = findViewById(R.id.storyUserName);
+        time = findViewById(R.id.storyTime);
         storyPlayerProgressView.setSingleStoryDisplayTime(2000);
         imageView = findViewById(R.id.storyImage);
         storyPreference = new StoryPreference(this);
         Intent intent = getIntent();
         if (intent != null) {
-            imagesUris = intent.getParcelableArrayListExtra(STORY_IMAGE_KEY);
+            stories = intent.getParcelableArrayListExtra(STORY_IMAGE_KEY);
             initStoryProgressView();
         }
     }
@@ -39,9 +45,9 @@ public class StoryPlayer extends AppCompatActivity implements StoryPlayerProgres
     }
 
     private void initStoryProgressView() {
-        if (imagesUris != null && imagesUris.size() > 0) {
+        if (stories != null && stories.size() > 0) {
             storyPlayerProgressView.setStoryPlayerListener(this);
-            storyPlayerProgressView.setProgressBarsCount(imagesUris.size());
+            storyPlayerProgressView.setProgressBarsCount(stories.size());
             setTouchListener();
         }
     }
@@ -69,7 +75,9 @@ public class StoryPlayer extends AppCompatActivity implements StoryPlayerProgres
     @Override
     public void onStartedPlaying(int index) {
         loadImage(index);
-        storyPreference.setStoryVisited(imagesUris.get(index).imageUri);
+        name.setText(stories.get(index).name);
+        time.setText(stories.get(index).time);
+        storyPreference.setStoryVisited(stories.get(index).imageUri);
     }
 
     @Override
@@ -79,7 +87,7 @@ public class StoryPlayer extends AppCompatActivity implements StoryPlayerProgres
 
     private void loadImage(int index) {
         Glide.with(this)
-                .load(imagesUris.get(index).imageUri)
+                .load(stories.get(index).imageUri)
                 .transition(DrawableTransitionOptions.withCrossFade(800))
                 .into(imageView);
     }
