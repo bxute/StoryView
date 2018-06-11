@@ -5,16 +5,13 @@ import android.os.Parcelable;
 
 public class StoryModel implements Parcelable {
     public String imageUri;
-    public boolean isVisited;
 
-    public StoryModel(String imageUri, boolean isVisited) {
+    public StoryModel(String imageUri) {
         this.imageUri = imageUri;
-        this.isVisited = isVisited;
     }
 
     protected StoryModel(Parcel in) {
         imageUri = in.readString();
-        isVisited = in.readByte() != 0x00;
     }
 
     @Override
@@ -25,7 +22,6 @@ public class StoryModel implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(imageUri);
-        dest.writeByte((byte) (isVisited ? 0x01 : 0x00));
     }
 
     @SuppressWarnings("unused")

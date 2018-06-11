@@ -19,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         StoryView storyView = findViewById(R.id.storyView);
         ArrayList<StoryModel> uris = new ArrayList<>();
-        uris.add(new StoryModel("https://images.pexels.com/photos/87840/daisy-pollen-flower-nature-87840.jpeg?cs=srgb&dl=plant-flower-macro-87840.jpg&fm=jpg", true));
-        uris.add(new StoryModel("http://content.gulte.com/content/2011/09/photos/actress/Kajal%20Agarwal/normal/Kajal%20Agarwal_270.jpg", false));
-        uris.add(new StoryModel("https://images.pexels.com/photos/257360/pexels-photo-257360.jpeg?auto=compress&cs=tinysrgb&h=350", true));
-        uris.add(new StoryModel("https://media.istockphoto.com/photos/sunrise-on-yosemite-valley-picture-id505872990?k=6&m=505872990&s=612x612&w=0&h=XcdHhkC9PF9-saYT6n_GQD-0Hf8dbI_Q4wfYlZZGpNk=", true));
+        uris.add(new StoryModel("https://images.pexels.com/photos/87840/daisy-pollen-flower-nature-87840.jpeg?cs=srgb&dl=plant-flower-macro-87840.jpg&fm=jpg"));
+        uris.add(new StoryModel("https://bornrealist.com/wp-content/uploads/2017/11/Here-Are-Top-10-Cute-Animals-That-Might-Actually-Kill-You.jpg"));
+        uris.add(new StoryModel("https://www.planwallpaper.com/static/images/animals-4.jpg"));
+        uris.add(new StoryModel("https://static.boredpanda.com/blog/wp-content/uuuploads/albino-animals/albino-animals-3.jpg"));
         storyView.setImageUris(uris);
     }
 }
