@@ -1,23 +1,27 @@
-#StoryView [![](https://jitpack.io/v/bxute/StoryView.svg)](https://jitpack.io/#bxute/StoryView)
+# StoryView [![](https://jitpack.io/v/bxute/StoryView.svg)](https://jitpack.io/#bxute/StoryView)
 
-An utility library for social stories.
+A library for social stories.
 
 How it looks like:
 
 **Story View**
+
+
 <img src="https://user-images.githubusercontent.com/10809719/41230599-03e56ed0-6d9e-11e8-9763-a38a88957ad3.png" width="320px" height="640px"/>
 
 **Story Player**
+
+
 <img src="https://user-images.githubusercontent.com/10809719/41230598-03a4a2b0-6d9e-11e8-8ba6-c5f1760523f1.png" width="320px" height="640px"/>
 
 ### Features:
  - It marks the visited stories
 
-![visits](https://user-images.githubusercontent.com/10809719/41230502-b0c578a8-6d9d-11e8-8dac-c86192bdb196.gif)
+![visit_show](https://user-images.githubusercontent.com/10809719/41231419-a66d6c32-6da0-11e8-8c49-6f0cc5693cb3.gif)
 
  - It pauses when we keep our finger on screen and resumes when fingers are released.
  
- ![pause_resume](https://user-images.githubusercontent.com/10809719/41230501-b0983d84-6d9d-11e8-8da1-989abbcfdf77.gif)
+![pause_show](https://user-images.githubusercontent.com/10809719/41231418-a63aae32-6da0-11e8-852d-365d44ce9dc5.gif)![pause_resume](https://user-images.githubusercontent.com/10809719/41230501-b0983d84-6d9d-11e8-8da1-989abbcfdf77.gif)
 
 ### How to use this library
 
