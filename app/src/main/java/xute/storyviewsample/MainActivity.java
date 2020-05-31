@@ -15,13 +15,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         StoryView storyView = findViewById(R.id.storyView);
-        //storyView.setActivityContext(this);
+        storyView.setActivityContext(this);
         storyView.resetStoryVisits();
         ArrayList<StoryModel> uris = new ArrayList<>();
-        uris.add(new StoryModel("https://images.pexels.com/photos/87840/daisy-pollen-flower-nature-87840.jpeg?cs=srgb&dl=plant-flower-macro-87840.jpg&fm=jpg", "Ankit Kumar", "12:00 PM"));
-        uris.add(new StoryModel("https://bornrealist.com/wp-content/uploads/2017/11/Here-Are-Top-10-Cute-Animals-That-Might-Actually-Kill-You.jpg", "Panda Man", "01:00 AM"));
-        uris.add(new StoryModel("https://www.planwallpaper.com/static/images/animals-4.jpg", "Steve", "Yesterday"));
-        uris.add(new StoryModel("https://static.boredpanda.com/blog/wp-content/uuuploads/albino-animals/albino-animals-3.jpg", "Grambon", "10:15 PM"));
+        uris.add(new StoryModel("https://picsum.photos/200/300", "Ankit Kumar", "12:00 PM"));
+        uris.add(new StoryModel("https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg", "Panda Man", "01:00 AM"));
+        uris.add(new StoryModel("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRCv_Gx6Fde6mja_lLmll0fzrxRvcKLHGrPxnqMrQLWKqXi9IYy&usqp=CAU", "Steve", "Yesterday"));
+        uris.add(new StoryModel("https://english.mathrubhumi.com/polopoly_fs/1.3885588!/image/image.jpg_gen/derivatives/landscape_607/image.jpg", "Grambon", "10:15 PM"));
         storyView.setImageUris(uris);
     }
 }

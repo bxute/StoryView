@@ -128,11 +128,9 @@ public class StoryView extends View {
     }
 
     private void loadFirstImageBitamp() {
-        RequestOptions options = new RequestOptions();
-        options.circleCrop();
         Glide.with(this)
          .asBitmap()
-         .apply(options)
+         .circleCrop()
          .load(storyImageUris.get(0).imageUri)
          .into(new SimpleTarget<Bitmap>() {
              @Override
